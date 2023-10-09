@@ -1,6 +1,18 @@
-import Phaser from "phaser";
-import config from "./config";
-import GameScene from "./scenes/Game";
+import * as PIXI from 'pixi.js';
+import HelloWorldScene from './scenes/HelloWorldScene';
 
-/* eslint-disable-next-line */
-const game = new Phaser.Game(Object.assign(config, { scene: [GameScene] }));
+const app = new PIXI.Application({
+  width: 800, // Width of the canvas
+  height: 600, // Height of the canvas
+  backgroundColor: 0x1099bb, // Background color
+});
+
+// Add the canvas to the HTML document
+document.body.appendChild(app.view);
+
+const helloWorldScene = new HelloWorldScene(app);
+helloWorldScene.setup();
+
+app.ticker.add((delta) => {
+  helloWorldScene.update(delta);
+});
