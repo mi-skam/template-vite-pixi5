@@ -13,6 +13,6 @@ document.body.appendChild(app.view);
 const helloWorldScene = new HelloWorldScene(app);
 helloWorldScene.setup();
 
-app.ticker.add((delta) => {
+app.ticker.add(delta => {
   helloWorldScene.update(delta);
 });
