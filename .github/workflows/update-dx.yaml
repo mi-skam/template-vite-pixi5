@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: main
 
       - name: Create a new branch
         run: git checkout -b create-pull-request/patch
@@ -24,13 +26,17 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Check for outdated packages
+      - name: Check for outdated packages @new-objects/*
         run: |
-          npm outdated || true
           npx npm-check-updates "/@new-objects/" -u
+          npm install
+
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add package.json package-lock.json
+          git commit -m "Update outdated packages"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
