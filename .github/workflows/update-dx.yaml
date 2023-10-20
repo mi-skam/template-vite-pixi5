@@ -16,6 +16,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Create a new branch
+        run: git checkout -b create-pull-request/patch
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
