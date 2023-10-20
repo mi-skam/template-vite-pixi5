@@ -19,7 +19,7 @@ jobs:
           ref: main
 
       - name: Create a new branch
-        run: git checkout -b create-pull-request/base
+        run: git checkout -b create-pull-request
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
