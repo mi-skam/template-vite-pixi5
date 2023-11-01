@@ -1,3 +1,5 @@
+import '../css/style.css';
+
 import * as PIXI from 'pixi.js';
 import HelloWorldScene from './scenes/HelloWorldScene';
 
