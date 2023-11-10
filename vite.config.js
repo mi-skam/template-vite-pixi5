@@ -3,11 +3,11 @@ import eslintPlugin from 'vite-plugin-eslint';
 
 export default defineConfig({
   base:
-    process.env.NODE_ENV === 'production' ? '/template-frontend-pixi5/' : '/',
+    process.env.DEPLOY_ENV === 'gh-pages' ? '/template-frontend-pixi5/' : '/',
   plugins: [
     eslintPlugin({
       cache: false,
-      failOnError: false
+      failOnError: false,
     }),
   ],
   assetsInclude: ['**/*.mp3', '**/*.jpeg', '**/*.png', '**/*.task'],
